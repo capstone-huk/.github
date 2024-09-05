@@ -21,7 +21,7 @@
 **<커뮤니케이션 툴>**
 |툴|목적|
 |:------:|---|
-|<img src="https://img.shields.io/badge/slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">|논의 및 소|
+|<img src="https://img.shields.io/badge/slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">|논의 및 소통|
 
 ### 🤝 회의 방식
 **<정기 일정>**
