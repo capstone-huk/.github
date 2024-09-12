@@ -6,7 +6,7 @@
 |:------:|---|
 |<img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white">|회의록 작성|
 |<img src="https://img.shields.io/badge/jira-0052CC?style=for-the-badge&logo=jira&logoColor=white">|개발 역할 분담 및 계획 수립|
-|<img src="https://img.shields.io/badge/jira-172B4D?style=for-the-badge&logo=confluence&logoColor=white">|개발에 필요한 문서 작성|
+|<img src="https://img.shields.io/badge/confluence-172B4D?style=for-the-badge&logo=confluence&logoColor=white">|개발에 필요한 문서 작성|
 
 **<디자인>**
 |툴|목적|
