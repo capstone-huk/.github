@@ -38,9 +38,7 @@
   - 전시 탐색
   - 감상 리뷰 작성
   - 사진 업로드
-  - 굿즈 생성 요청
-
----
+  - 굿즈 생성 요청<br>
 
 ### Frontend (웹 - React)
 
@@ -54,9 +52,7 @@
 - **기술 스택**
   - React
   - 상태 관리: Context API / Redux
-  - Axios 또는 Fetch API
-
----
+  - Axios 또는 Fetch API<br>
 
 ###  Backend API 서버 (EC2)
 
@@ -70,9 +66,7 @@
 - **기술 스택**
   - Django / FastAPI / Node.js 등
   - PostgreSQL ORM
-  - AWS SDK (S3 연동)
-
----
+  - AWS SDK (S3 연동)<br>
 
 ###  RDS (PostgreSQL)
 
@@ -81,9 +75,7 @@
   - `User`: 사용자 정보
   - `Exhibition`: 전시 정보 (제목, 장소, 날짜 등)
   - `Review`: 감상평, 이미지, 태그 등
-  - `Goods`: 생성된 굿즈 정보 (AI 결과 이미지 URL 등)
-
----
+  - `Goods`: 생성된 굿즈 정보 (AI 결과 이미지 URL 등)<br>
 
 ### StyleShot AI 모델 API 호출
 
@@ -94,9 +86,7 @@
   - 결과 이미지 메타데이터 DB 저장
 - **예상 방식**
   - 외부 REST API 호출
-  - JSON + multipart 업로드, 결과 이미지 URL 반환
-
----
+  - JSON + multipart 업로드, 결과 이미지 URL 반환<br>
 
 ### S3 (이미지 스토리지)
 
