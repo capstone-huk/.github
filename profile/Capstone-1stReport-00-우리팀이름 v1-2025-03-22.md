@@ -31,70 +31,7 @@
 |:---  |---  |
 | (1) 요구사항 정의 | *프로젝트를 완성하기 위해 필요한 요구사항을 설명하기에 가장 적합한 방법을 선택하여 기술* <br> 예) <br> - 기능별 상세 요구사항(또는 유스케이스) <br> - 설계 모델(클래스 다이어그램, 클래스 및 모듈 명세서) <br> - UI 분석/설계 모델 <br> - E-R 다이어그램/DB 설계 모델(테이블 구조) |
 | (2) 전체 시스템 구성 | *프로젝트를 위하여, SW 전체 시스템의 구조를 보인다. (가능하다면, 사용자도 포함) <br> 주요 SW 모듈을 보이고, 각각의 역할을 기술한다. <br>만약, 오픈소스 혹은 외부 모듈을 사용한다면 이또한 기술한다.* <br>**Memoir - SW 전체 시스템 구성도**<br><br>**시스템 구성도**:<br>![sw구조](sw.png)|
-| (3) 주요엔진 및 기능 설계 | *프로젝트의 주요 기능 혹은 모듈의 설계내용에 대하여 기술한다 <br> SW 구조 그림에 있는 각 Module의 상세 구현내용을 자세히 기술한다.*<br>### 사용자 (User)
-
-<br>**역할**: 웹 인터페이스를 통해 서비스를 사용
-<br> **사용자 행동 흐름**
-  <br> 전시 탐색
-  <br> 감상 리뷰 작성
-  <br> 사진 업로드
-  <br> 굿즈 생성 요청<br>
-
-### Frontend (웹 - React)
-
-<br> **역할**: 사용자 UI 제공 및 Backend API와 통신
-<br> **기능 설계**
-  <br> 전시 검색 UI
-  <br> 리뷰 작성/수정/조회 UI
-  <br> 파일 업로드 컴포넌트
-  <br> 굿즈 생성 버튼 + 결과 이미지 확인
-  <br> 로그인/회원가입 처리
-<br> **기술 스택**
-  <br> React
-  <br> 상태 관리: Context API / Redux
-  <br> Axios 또는 Fetch API<br>
-
-###  Backend API 서버 (EC2)
-
-<br> **역할**: 비즈니스 로직 처리, DB 및 AI API 연동
-<br> **핵심 모듈**
-  <br> `Auth`: JWT 기반 인증
-  <br> `Exhibition`: 전시 정보 CRUD 및 검색
-  <br> `Review`: 리뷰 작성, 수정, 삭제, 조회
-  <br> `Upload`: S3 이미지 업로드 핸들링
-  <br> `AI`: StyleShot API와 통신
-<br> **기술 스택**
-  <br> Django / FastAPI / Node.js 등
-  <br> PostgreSQL ORM
-  <br> AWS SDK (S3 연동)<br>
-
-###  RDS (PostgreSQL)
-
-<br> **역할**: 핵심 데이터 저장소
-<br> **DB 테이블 예시**
-  <br> `User`: 사용자 정보
-  <br> `Exhibition`: 전시 정보 (제목, 장소, 날짜 등)
-  <br> `Review`: 감상평, 이미지, 태그 등
-  <br> `Goods`: 생성된 굿즈 정보 (AI 결과 이미지 URL 등)<br>
-
-### StyleShot AI 모델 API 호출
-
-<br> **역할**: Style Transfer 기반 굿즈 이미지 생성
-<br> **기능 설계**
-  <br> 사용자 이미지 + 전시 스타일 정보 전달
-  <br> 생성 이미지 수신 (URL 또는 파일)
-  <br> 결과 이미지 메타데이터 DB 저장
-<br> **예상 방식**
-  <br> 외부 REST API 호출
-  <br> JSON + multipart 업로드, 결과 이미지 URL 반환<br>
-
-### S3 (이미지 스토리지)
-
-<br> **역할**: 전시 사진 및 생성된 티켓 굿즈 이미지 저장
-<br> **기능 설계**
-  <br> Presigned URL 방식 이미지 업로드
-  <br> 저장된 이미지 URL → DB 저장
-  <br> 정적 리소스로 사용자에게 공개 |
+| (3) 주요엔진 및 기능 설계 | *프로젝트의 주요 기능 혹은 모듈의 설계내용에 대하여 기술한다 <br> SW 구조 그림에 있는 각 Module의 상세 구현내용을 자세히 기술한다.*<br>**사용자 (User)**<br><br>• 역할: 웹 인터페이스를 통해 서비스 사용<br>• 사용자 행동 흐름:<br>　- 전시 탐색<br>　- 감상 리뷰 작성<br>　- 사진 업로드<br>　- 굿즈 생성 요청<br><br>**Frontend (웹 - React)**<br><br>• 역할: 사용자 UI 제공 및 Backend API와 통신<br>• 기능 설계:<br>　- 전시 검색 UI<br>　- 리뷰 작성/수정/조회 UI<br>　- 파일 업로드 컴포넌트<br>　- 굿즈 생성 버튼 + 결과 이미지 확인<br>　- 로그인/회원가입 처리<br>• 기술 스택: React<br><br>**Backend API 서버 (EC2)**<br><br>• 역할: 비즈니스 로직 처리, DB 및 외부 API 연동<br>• 기능 설계:<br>　- 사용자 인증 및 토큰 발급 (JWT)<br>　- 전시 정보 CRUD 및 검색<br>　- 리뷰 CRUD 처리<br>　- 파일 업로드용 S3 presigned URL 발급<br>　- StyleShot AI API 호출 처리<br>• 기술 스택: FastAPI / Django / Node.js, AWS SDK, PostgreSQL ORM<br><br>**RDS (PostgreSQL)**<br><br>• 역할: 핵심 데이터 저장소<br>• 테이블 예시:<br>　- User: 사용자 정보<br>　- Exhibition: 전시 정보 (제목, 장소, 날짜 등)<br>　- Review: 감상평, 사진, 태그 등<br>　- Goods: 생성된 굿즈 결과 정보<br><br>**StyleShot AI 모델 API 호출**<br><br>• 역할: 스타일 전이 기반 굿즈 이미지 생성<br>• 기능 설계:<br>　- 사용자 이미지와 전시 스타일 정보 전달<br>　- 생성된 결과 이미지 수신<br>　- 메타데이터 DB 저장<br>• 방식: 외부 REST API 호출 (JSON + multipart)<br><br>**S3 (이미지 스토리지)**<br><br>• 역할: 사용자 사진 및 생성된 굿즈 이미지 저장소<br>• 기능 설계:<br>　- presigned URL 방식 업로드 처리<br>　- 업로드 후 이미지 URL DB에 저장<br>　- 이미지 접근 경로 사용자에게 제공 |
 | (4) 주요 기능의 구현 | *<주요기능리스트>에 정의된 기능 중 최소 2개 이상에 대한 상세 구현내용을 기술한다.* |
 | (5) 기타 | *기타 사항을 기술*  |
 
